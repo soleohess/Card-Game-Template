@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     public List<PlayingCard> deck = new List<PlayingCard>();
     public List<PlayingCard> player_deck = new List<PlayingCard>();
     public List<PlayingCard> ai_deck = new List<PlayingCard>();
-    public List<PlayingCard> player_hand = new List<PlayingCard>();
-    public List<PlayingCard> ai_hand = new List<PlayingCard>();
     public List<PlayingCard> discard_pile = new List<PlayingCard>();
 
     public bool playerTurnNext;
@@ -51,6 +49,7 @@ public class GameManager : MonoBehaviour
     void Deal()
     {
         // Deal 26 cards to each player.
+        //player_deck.Add(deck.);
     }
 
     void Action() // Modes game can be in: Player playing card for turn, player paying taxes, AI playing card for turn, AI paying taxes, put stack in player deck, put stack in AI deck.

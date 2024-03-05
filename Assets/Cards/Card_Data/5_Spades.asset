@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c025b4487bfbb41fca186c7d9d6e18a5, type: 3}
   m_Name: 5_Spades
   m_EditorClassIdentifier: 
-  suit: 0
+  suit: 1
   type: 0
-  number: 0
+  number: 5
