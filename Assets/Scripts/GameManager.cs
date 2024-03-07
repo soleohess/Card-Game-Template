@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public int remainingTax;
     public bool addToPlayerDeckNext;
     public bool addToAIDeckNext;
+
+    private int rand;
+    private PlayingCard card;
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -48,8 +51,21 @@ public class GameManager : MonoBehaviour
 
     void Deal()
     {
+        while (deck.Count > 0)
+        {
+            rand = Random.Range(0, deck.Count);
+            Debug.Log(deck.Count);
+            player_deck.Add(deck[rand]);
+            card = deck[rand];
+            deck.Remove(card);
+            
+            rand = Random.Range(0, deck.Count);
+            ai_deck.Add(deck[rand]);
+            card = deck[rand];
+            deck.Remove(card);
+        }
         // Deal 26 cards to each player.
-        //player_deck.Add(deck.);
+        player_deck.Add(deck[1]);
     }
 
     void Action() // Modes game can be in: Player playing card for turn, player paying taxes, AI playing card for turn, AI paying taxes, put stack in player deck, put stack in AI deck.
