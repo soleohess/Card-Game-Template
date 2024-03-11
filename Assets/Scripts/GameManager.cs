@@ -70,46 +70,73 @@ public class GameManager : MonoBehaviour
     {
         if (playerTurnNext && remainingTax == 0) //No face cards flipped yet, player taking their turn
         {
-            // Flip card
+            discard_pile.Add(player_deck[0]); // Put a duplicate of player's top card onto the front stack.
+            
             playerTurnNext = false;
             AITurnNext = true;
             // if face card flipped
             //{
                 // remainingTax = something;
             //}
+
+            card = player_deck[0];
+            player_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
         }
 
         if (AITurnNext && remainingTax == 0) //No face cards flipped yet, AI taking their turn
         {
-            // Flip card
-            AITurnNext = false; 
-            playerTurnNext = true;
+            discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
+            
             // if face card flipped
             //{
             // remainingTax = something;
             //}
+            AITurnNext = false; 
+            playerTurnNext = true;
+            
+            card = ai_deck[0];
+            ai_deck.Remove(card); //Delete the top card of the AI's deck, as a copy of it went onto the main pile.
         }
 
         if (playerTurnNext && remainingTax > 0) // Player paying taxes
         {
-            //Flip card
-            remainingTax -= 1;
-            if (remainingTax == 0) // If we're done paying taxes
-            {
-                playerTurnNext = false;
-                addToAIDeckNext = true;
-            } // If not done paying taxes, remainingTax is still positive and playerTurnNext is still true, so we will pay taxes next turn.
+            discard_pile.Add(player_deck[0]); // Put a duplicate of player's top card onto the front stack.
+
+            // if face card flipped
+            //{
+                // remainingTax = something;
+                //playerTurnNext = false;
+                //AITurnNext = true;
+            //} else {
+                remainingTax -= 1;
+                if (remainingTax == 0) // If we're done paying taxes
+                {
+                    playerTurnNext = false;
+                    addToAIDeckNext = true;
+                } // If not done paying taxes, remainingTax is still positive and playerTurnNext is still true, so we will pay taxes next turn.
+            //}
+            card = player_deck[0];
+            player_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
+
         }
         
         if (AITurnNext && remainingTax > 0) // AI paying taxes
         {
-            //Flip card
-            remainingTax -= 1;
-            if (remainingTax == 0) // If we're done paying taxes
-            {
-                AITurnNext = false;
-                addToPlayerDeckNext = true;
-            } // If not done paying taxes, remainingTax is still positive and AITurnNext is still true, so we will pay taxes next turn.
+            discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
+            
+            // if face card flipped
+            //{
+                // remainingTax = something;
+            //} else {
+                remainingTax -= 1;
+                if (remainingTax == 0) // If we're done paying taxes
+                {
+                    AITurnNext = false;
+                    addToPlayerDeckNext = true;
+                } // If not done paying taxes, remainingTax is still positive and AITurnNext is still true, so we will pay taxes next turn.
+            //}
+            card = ai_deck[0];
+            ai_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
         }
 
         if (addToPlayerDeckNext)
