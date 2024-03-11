@@ -64,8 +64,6 @@ public class GameManager : MonoBehaviour
             card = deck[rand];
             deck.Remove(card);
         }
-        // Deal 26 cards to each player.
-        player_deck.Add(deck[1]);
     }
 
     void Action() // Modes game can be in: Player playing card for turn, player paying taxes, AI playing card for turn, AI paying taxes, put stack in player deck, put stack in AI deck.
