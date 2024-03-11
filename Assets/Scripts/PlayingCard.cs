@@ -9,7 +9,7 @@ public class PlayingCard : MonoBehaviour // This sprite draws card images.
     public Card_data data;
 
     public int suit;
-    public int number;
+    public string symbol;
     public Sprite sprite;
     
     public TextMeshProUGUI numberText;
@@ -19,8 +19,8 @@ public class PlayingCard : MonoBehaviour // This sprite draws card images.
     // Start is called before the first frame update
     void Start()
     {
-        number = data.number;
-        numberText.text = number.ToString();
+        symbol = data.symbol;
+        numberText.text = symbol;
         spriteImage.sprite = sprite;
 
     }
