@@ -33,13 +33,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Deal();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Action();
+        }
     }
 // Deal 26 cards to you and 26 to AI
 // You reveal a card.
@@ -66,7 +69,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Action() // Modes game can be in: Player playing card for turn, player paying taxes, AI playing card for turn, AI paying taxes, put stack in player deck, put stack in AI deck.
+    void Action() // 6 Modes game can be in: Player playing card for turn, player paying taxes, AI playing card for turn, AI paying taxes, put stack in player deck, put stack in AI deck.
     {
         if (playerTurnNext && remainingTax == 0) //No face cards flipped yet, player taking their turn
         {
@@ -83,7 +86,7 @@ public class GameManager : MonoBehaviour
             player_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
         }
 
-        if (AITurnNext && remainingTax == 0) //No face cards flipped yet, AI taking their turn
+        else if (AITurnNext && remainingTax == 0) //No face cards flipped yet, AI taking their turn
         {
             discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
             
@@ -98,16 +101,18 @@ public class GameManager : MonoBehaviour
             ai_deck.Remove(card); //Delete the top card of the AI's deck, as a copy of it went onto the main pile.
         }
 
-        if (playerTurnNext && remainingTax > 0) // Player paying taxes
+        else if (playerTurnNext && remainingTax > 0) // Player paying taxes
         {
             discard_pile.Add(player_deck[0]); // Put a duplicate of player's top card onto the front stack.
 
-            // if face card flipped
+            /*  if face card flipped
+                {
+                    remainingTax = something;
+                    playerTurnNext = false;
+                    AITurnNext = true;
+                }   */
+            //else
             //{
-                // remainingTax = something;
-                //playerTurnNext = false;
-                //AITurnNext = true;
-            //} else {
                 remainingTax -= 1;
                 if (remainingTax == 0) // If we're done paying taxes
                 {
@@ -120,7 +125,7 @@ public class GameManager : MonoBehaviour
 
         }
         
-        if (AITurnNext && remainingTax > 0) // AI paying taxes
+        else if (AITurnNext && remainingTax > 0) // AI paying taxes
         {
             discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
             
@@ -139,13 +144,13 @@ public class GameManager : MonoBehaviour
             ai_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
         }
 
-        if (addToPlayerDeckNext)
+        else if (addToPlayerDeckNext)
         {
             // add cards to player's deck
             addToPlayerDeckNext = false;
             playerTurnNext = true;
         }
-        if (addToAIDeckNext)
+        else if (addToAIDeckNext)
         {
             // add cards to AI's deck
             addToAIDeckNext = false;
@@ -154,15 +159,15 @@ public class GameManager : MonoBehaviour
 
         
     }
-//    void Shuffle()
-//    {
+/*  void Shuffle()
+    {
     
-//    }
+    }   */
 
-//    void AI_Turn()
-//    {
+/*  void AI_Turn()
+    {
 
-//    }
+    }   */
 
 
 
