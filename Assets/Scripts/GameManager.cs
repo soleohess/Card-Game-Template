@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
-    // Start is called before the first frame update
+    // Start is called before the first frame update, test comment
     void Start()
     {
         Deal();
