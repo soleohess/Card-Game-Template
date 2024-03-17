@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     private int rand;
     private PlayingCard card;
+
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -57,7 +58,6 @@ public class GameManager : MonoBehaviour
         while (deck.Count > 0)
         {
             rand = Random.Range(0, deck.Count);
-            Debug.Log(deck.Count);
             player_deck.Add(deck[rand]);
             card = deck[rand];
             deck.Remove(card);
@@ -73,101 +73,140 @@ public class GameManager : MonoBehaviour
     {
         if (playerTurnNext && remainingTax == 0) //No face cards flipped yet, player taking their turn
         {
-            discard_pile.Add(player_deck[0]); // Put a duplicate of player's top card onto the front stack.
-            
-            playerTurnNext = false;
-            AITurnNext = true;
-            // if face card flipped
-            //{
-                // remainingTax = something;
-            //}
+            if (player_deck.Count > 0)
+            {
+                discard_pile.Add(player_deck[0]); // Put a duplicate of player's top card onto the front stack.
+                card = player_deck[0];
+                player_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
 
-            card = player_deck[0];
-            player_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
+                playerTurnNext = false;
+                AITurnNext = true;
+                if (card.data.value > 10)
+                {
+                    Debug.Log("Face card flipped.");
+                    remainingTax = card.data.value - 10;
+                }
+            } else {
+                AI_Wins();
+            }
         }
 
         else if (AITurnNext && remainingTax == 0) //No face cards flipped yet, AI taking their turn
         {
-            discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
+            if (ai_deck.Count > 0)
+            {
+                discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
+                card = ai_deck[0];
+                ai_deck.Remove(card); //Delete the top card of the AI's deck, as a copy of it went onto the main pile.
             
-            // if face card flipped
-            //{
-            // remainingTax = something;
-            //}
-            AITurnNext = false; 
-            playerTurnNext = true;
-            
-            card = ai_deck[0];
-            ai_deck.Remove(card); //Delete the top card of the AI's deck, as a copy of it went onto the main pile.
+                AITurnNext = false; 
+                playerTurnNext = true;
+                if (card.data.value > 10)
+                {
+                    Debug.Log("Face card flipped.");
+                    remainingTax = card.data.value - 10;
+                
+                }
+            } else {
+                Player_Wins();
+            }
         }
 
         else if (playerTurnNext && remainingTax > 0) // Player paying taxes
         {
-            discard_pile.Add(player_deck[0]); // Put a duplicate of player's top card onto the front stack.
+            if (player_deck.Count > 0)
+            {
+                discard_pile.Add(player_deck[0]); // Put a duplicate of player's top card onto the front stack.
+                card = player_deck[0];
+                player_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
 
-            /*  if face card flipped
+                if (card.data.value > 10) // If face card
                 {
-                    remainingTax = something;
-                    playerTurnNext = false;
-                    AITurnNext = true;
-                }   */
-            //else
-            //{
-                remainingTax -= 1;
-                if (remainingTax == 0) // If we're done paying taxes
+                Debug.Log("Face card flipped.");
+                remainingTax = card.data.value - 10;
+                AITurnNext = true;
+                playerTurnNext = false;
+                }
+                else
                 {
-                    playerTurnNext = false;
-                    addToAIDeckNext = true;
-                } // If not done paying taxes, remainingTax is still positive and playerTurnNext is still true, so we will pay taxes next turn.
-            //}
-            card = player_deck[0];
-            player_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
+                    remainingTax -= 1;
+                    if (remainingTax == 0) // If we're done paying taxes
+                    {
+                        playerTurnNext = false;
+                        addToAIDeckNext = true;
+                    } // If not done paying taxes, remainingTax is still positive and playerTurnNext is still true, so we will pay taxes next turn.
+                }
+            } else {
+                AI_Wins();
+            }
 
         }
-        
         else if (AITurnNext && remainingTax > 0) // AI paying taxes
         {
-            discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
+            if (ai_deck.Count > 0)
+            {
+                discard_pile.Add(ai_deck[0]); // Put a duplicate of AI's top card onto the front stack.
+                card = ai_deck[0];
+                ai_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
             
-            // if face card flipped
-            //{
-                // remainingTax = something;
-            //} else {
-                remainingTax -= 1;
-                if (remainingTax == 0) // If we're done paying taxes
+                if (card.data.value > 10)
                 {
+                    Debug.Log("Face card flipped.");
+                    remainingTax = card.data.value - 10;
+                    playerTurnNext = true;
                     AITurnNext = false;
-                    addToPlayerDeckNext = true;
-                } // If not done paying taxes, remainingTax is still positive and AITurnNext is still true, so we will pay taxes next turn.
-            //}
-            card = ai_deck[0];
-            ai_deck.Remove(card); //Delete the top card of the player's deck, as a copy of it went onto the main pile.
+                }
+                else
+                {
+                    remainingTax -= 1;
+                    if (remainingTax == 0) // If we're done paying taxes
+                   {
+                        AITurnNext = false;
+                        addToPlayerDeckNext = true;
+                    } // If not done paying taxes, remainingTax is still positive and AITurnNext is still true, so we will pay taxes next turn.
+                }
+            } else Player_Wins();
         }
-
         else if (addToPlayerDeckNext)
         {
             // add cards to player's deck
+
+        while (discard_pile.Count > 0)
+        {
+            card = discard_pile[0];
+            player_deck.Add(card);
+            discard_pile.Remove(card);
+        }
+
+
             addToPlayerDeckNext = false;
             playerTurnNext = true;
         }
         else if (addToAIDeckNext)
         {
             // add cards to AI's deck
+        while (discard_pile.Count > 0)
+        {
+            card = discard_pile[0];
+            ai_deck.Add(card);
+            discard_pile.Remove(card);
+        }
+
             addToAIDeckNext = false;
             AITurnNext = true;
         }
 
         
     }
-/*  void Shuffle()
+    void Player_Wins()
     {
-    
-    }   */
+        Debug.Log("Player_Wins");
+    }
 
-/*  void AI_Turn()
+    void AI_Wins()
     {
-
-    }   */
+        Debug.Log("AI_Wins");
+    }
 
 
 
