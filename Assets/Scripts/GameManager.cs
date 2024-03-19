@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     private int rand;
     private PlayingCard card;
+
+    public GameObject back;
 
     private void Awake()
     {
@@ -198,6 +202,22 @@ public class GameManager : MonoBehaviour
 
         
     }
+
+    void Draw_Screen()
+    {
+        // Delete old prefabs.
+        //Card current = Instantiate(discard_pile[(discard_pile.Count - 1)], new Vector3(-750, 600, 0), quaternion.identity);
+        if (player_deck.Count > 0)
+        {
+            Instantiate(back, new Vector3(0, 0, 0), quaternion.identity);
+        }
+
+        if (ai_deck.Count > 0)
+        {
+            
+        }
+    }
+    
     void Player_Wins()
     {
         Debug.Log("Player_Wins");
