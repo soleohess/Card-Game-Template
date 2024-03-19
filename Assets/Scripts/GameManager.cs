@@ -227,8 +227,5 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("AI_Wins");
     }
-
-
-
     
 }
