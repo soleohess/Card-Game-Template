@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     private int rand;
     private PlayingCard card;
+    public GameObject _canvas;
 
     public GameObject back;
 
@@ -90,6 +91,7 @@ public class GameManager : MonoBehaviour
                     Debug.Log("Face card flipped.");
                     remainingTax = card.data.value - 10;
                 }
+                Draw_Screen();
             } else {
                 AI_Wins();
             }
@@ -111,6 +113,7 @@ public class GameManager : MonoBehaviour
                     remainingTax = card.data.value - 10;
                 
                 }
+                Draw_Screen();
             } else {
                 Player_Wins();
             }
@@ -140,6 +143,7 @@ public class GameManager : MonoBehaviour
                         addToAIDeckNext = true;
                     } // If not done paying taxes, remainingTax is still positive and playerTurnNext is still true, so we will pay taxes next turn.
                 }
+                Draw_Screen();
             } else {
                 AI_Wins();
             }
@@ -169,35 +173,38 @@ public class GameManager : MonoBehaviour
                         addToPlayerDeckNext = true;
                     } // If not done paying taxes, remainingTax is still positive and AITurnNext is still true, so we will pay taxes next turn.
                 }
+                Draw_Screen();
             } else Player_Wins();
         }
         else if (addToPlayerDeckNext)
         {
             // add cards to player's deck
 
-        while (discard_pile.Count > 0)
-        {
-            card = discard_pile[0];
-            player_deck.Add(card);
-            discard_pile.Remove(card);
-        }
+            while (discard_pile.Count > 0)
+            {
+                card = discard_pile[0];
+                player_deck.Add(card);
+                discard_pile.Remove(card);
+            }
 
 
             addToPlayerDeckNext = false;
             playerTurnNext = true;
+            Draw_Screen();
         }
         else if (addToAIDeckNext)
         {
             // add cards to AI's deck
-        while (discard_pile.Count > 0)
-        {
-            card = discard_pile[0];
-            ai_deck.Add(card);
-            discard_pile.Remove(card);
-        }
+            while (discard_pile.Count > 0)
+            {
+                card = discard_pile[0];
+                ai_deck.Add(card);
+                discard_pile.Remove(card);
+            }
 
             addToAIDeckNext = false;
             AITurnNext = true;
+            Draw_Screen();
         }
 
         
@@ -206,15 +213,15 @@ public class GameManager : MonoBehaviour
     void Draw_Screen()
     {
         // Delete old prefabs.
-        //Card current = Instantiate(discard_pile[(discard_pile.Count - 1)], new Vector3(-750, 600, 0), quaternion.identity);
+        //Card current = Instantiate(discard_pile[(discard_pile.Count - 1)], new Vector3(0, 0, 0), quaternion.identity);
         if (player_deck.Count > 0)
         {
-            Instantiate(back, new Vector3(0, 0, 0), quaternion.identity);
+            Instantiate(back, new Vector3(550, 100, 0), quaternion.identity, _canvas.transform);
         }
 
         if (ai_deck.Count > 0)
         {
-            
+            Instantiate(back, new Vector3(550, 1200, 0), quaternion.identity, _canvas.transform);
         }
     }
     
