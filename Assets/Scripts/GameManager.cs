@@ -173,9 +173,9 @@ public class GameManager : MonoBehaviour
                 {
                     remainingTax -= 1;
                     if (remainingTax == 0) // If we're done paying taxes
-                   {
+                    {
                         AITurnNext = false;
-                        addToPlayerDeckNext = true;
+                        addToPlayerDeckNext = true; 
                     } // If not done paying taxes, remainingTax is still positive and AITurnNext is still true, so we will pay taxes next turn.
                 }
                 Draw_Screen();
