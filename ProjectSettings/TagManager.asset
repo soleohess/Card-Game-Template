@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AI_Back
+  - Player_Back
+  - AI_Grave
+  - Player_Grave
   layers:
   - Default
   - TransparentFX

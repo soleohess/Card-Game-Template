@@ -22,7 +22,10 @@ public class GameManager : MonoBehaviour
     private PlayingCard card;
     public GameObject _canvas;
 
-    public GameObject back;
+    public GameObject AI_Back;
+    public GameObject Player_Back;
+    public GameObject AI_Grave;
+    public GameObject Player_Grave;
 
     private void Awake()
     {
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update, test comment
     void Start()
     {
+        AI_Back = GameObject.FindGameObjectWithTag("AI_Back");
+        Player_Back = GameObject.FindGameObjectWithTag("Player_Back");
         Deal();
     }
 
@@ -216,23 +221,33 @@ public class GameManager : MonoBehaviour
         //Card current = Instantiate(discard_pile[(discard_pile.Count - 1)], new Vector3(0, 0, 0), quaternion.identity);
         if (player_deck.Count > 0)
         {
-            Instantiate(back, new Vector3(550, 100, 0), quaternion.identity, _canvas.transform);
+            Player_Back.SetActive(true);
+        }
+        else
+        {
+            Player_Back.SetActive(false);
         }
 
         if (ai_deck.Count > 0)
         {
-            Instantiate(back, new Vector3(550, 1200, 0), quaternion.identity, _canvas.transform);
+            AI_Back.SetActive(true);
+        }
+        else
+        {
+            AI_Back.SetActive(false);
         }
     }
     
     void Player_Wins()
     {
         Debug.Log("Player_Wins");
+        AI_Grave.SetActive(true);
     }
 
     void AI_Wins()
     {
         Debug.Log("AI_Wins");
+        Player_Grave.SetActive(true);
     }
     
 }
