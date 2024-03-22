@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c025b4487bfbb41fca186c7d9d6e18a5, type: 3}
   m_Name: 6_Diamonds
   m_EditorClassIdentifier: 
-  suit: {fileID: 21300000, guid: 3eed9f5ef7cf44bdab11dd19cb4de819, type: 3}
+  suit: {fileID: 21300000, guid: ae0466172022d414b81bba06f48154cf, type: 3}
   value: 6

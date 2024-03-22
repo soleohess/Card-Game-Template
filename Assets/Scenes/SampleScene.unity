@@ -385,6 +385,45 @@ MonoBehaviour:
   - {fileID: 1782675828030334672, guid: efd637b6163044aeca11187a92a46b7d, type: 3}
   - {fileID: 1782675828030334672, guid: 13e1a8cf4dfd44c9994710ef439b997f, type: 3}
   - {fileID: 1782675828030334672, guid: b0fbb79a8b3ac400ea96b928551e7dc5, type: 3}
+  - {fileID: 1782675828030334672, guid: 2a7a6778a34f740a1ad2669dfee48e7a, type: 3}
+  - {fileID: 1782675828030334672, guid: 93fca249e0dd74fa390ac8d5228e617c, type: 3}
+  - {fileID: 1782675828030334672, guid: 025e8474a8307487c84c06e09126d7c7, type: 3}
+  - {fileID: 1782675828030334672, guid: 82f8bdfdfc90f408499d8fc318435515, type: 3}
+  - {fileID: 1782675828030334672, guid: 5a35468c727a843168f1f80ed7092890, type: 3}
+  - {fileID: 1782675828030334672, guid: 02bd982d33b3a4d6ab9503e7fa129f72, type: 3}
+  - {fileID: 1782675828030334672, guid: e227edf1fe0e341d0808ac2cd5984b74, type: 3}
+  - {fileID: 1782675828030334672, guid: 28fe73e9ccfe8447492fdcb0158218d9, type: 3}
+  - {fileID: 1782675828030334672, guid: 76bae1bb3bc4e4be988fb2e4e3e2f6f7, type: 3}
+  - {fileID: 1782675828030334672, guid: 626191a7a7cc7474f88884ac8558d703, type: 3}
+  - {fileID: 1782675828030334672, guid: d3339560e057c41f1a3b3c262fbd4510, type: 3}
+  - {fileID: 1782675828030334672, guid: 2fcdb61160a60415787a9b4a29e80b41, type: 3}
+  - {fileID: 1782675828030334672, guid: e49a7c22ec6e140b285d64480867e2a3, type: 3}
+  - {fileID: 1782675828030334672, guid: 724c5c590be034bc19fd569c6e85274f, type: 3}
+  - {fileID: 1782675828030334672, guid: df4956f2cdc7f4532a8d98a1eb364fe7, type: 3}
+  - {fileID: 1782675828030334672, guid: 446a9b4c4614f43c2865c4ce94efaf66, type: 3}
+  - {fileID: 1782675828030334672, guid: 1f8469e1358ca4f7698a90006f429a83, type: 3}
+  - {fileID: 1782675828030334672, guid: be8b23242b152430784d34201fe18186, type: 3}
+  - {fileID: 1782675828030334672, guid: dd923ded3edec45ad9316be58be92fe7, type: 3}
+  - {fileID: 1782675828030334672, guid: 65697a09767c9446b9b58ea7f88a88ab, type: 3}
+  - {fileID: 1782675828030334672, guid: 5f1e84be00e764b4d88cbe90d22ba74e, type: 3}
+  - {fileID: 1782675828030334672, guid: f4d33dfec7c414ce5a6e0c7e92b5f270, type: 3}
+  - {fileID: 1782675828030334672, guid: ca96f25fff9ca479ea19953eda70f04e, type: 3}
+  - {fileID: 1782675828030334672, guid: a2cdb92f6e93841fca6b7718b6e8ae26, type: 3}
+  - {fileID: 1782675828030334672, guid: 773db9619962a46478074fe068b0782d, type: 3}
+  - {fileID: 1782675828030334672, guid: 9afd056dba2224aabb31d76671cfc825, type: 3}
+  - {fileID: 1782675828030334672, guid: 3559907ec127e46ca97e821cfbce4a66, type: 3}
+  - {fileID: 1782675828030334672, guid: d738984a7a80a4ae081e957720e786b4, type: 3}
+  - {fileID: 1782675828030334672, guid: 74129de0017d74d788a305c74dba6d91, type: 3}
+  - {fileID: 1782675828030334672, guid: 53be7ef1c613547288162bc4f6f70538, type: 3}
+  - {fileID: 1782675828030334672, guid: c900e28a96ea042338a99b02fda0d67c, type: 3}
+  - {fileID: 1782675828030334672, guid: 6540951421e4942b8bf39921888c9827, type: 3}
+  - {fileID: 1782675828030334672, guid: bc6327d17bd2243a499c297d16c582d6, type: 3}
+  - {fileID: 1782675828030334672, guid: 6d967972c1aaf4cdeb157b2e4f69f3d2, type: 3}
+  - {fileID: 1782675828030334672, guid: 26897892a29be42128c79d0d8476cfbb, type: 3}
+  - {fileID: 1782675828030334672, guid: 8270da9fe517a49d7bbff9221b76611a, type: 3}
+  - {fileID: 1782675828030334672, guid: ac8eb0cde5a694338875a9d532c24109, type: 3}
+  - {fileID: 1782675828030334672, guid: 3c2677ee00bba4749a7a7e944c76bde8, type: 3}
+  - {fileID: 1782675828030334672, guid: 79cfc1b3736c84df6b3da0515f415990, type: 3}
   player_deck: []
   ai_deck: []
   discard_pile: []
@@ -573,7 +612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6372168330148135562, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6372168330148135562, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -734,7 +773,7 @@ Transform:
   m_GameObject: {fileID: 1807976963}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -475.5, y: -84, z: 0}
   m_LocalScale: {x: 1.8338108, y: 1.8338108, z: 1.8338108}
   m_ConstrainProportionsScale: 0
   m_Children: []
