@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,12 +21,15 @@ public class GameManager : MonoBehaviour
 
     private int rand;
     private PlayingCard card;
-    public GameObject _canvas;
+    public Transform _canvas;
+    public Transform asdf;
 
     public GameObject AI_Back;
     public GameObject Player_Back;
     public GameObject AI_Grave;
     public GameObject Player_Grave;
+
+    public PlayingCard oldCard;
 
     private void Awake()
     {
@@ -217,7 +221,10 @@ public class GameManager : MonoBehaviour
 
     void Draw_Screen()
     {
-        // Delete old prefabs.
+        //oldCard = GameObject.FindObjectOfType<PlayingCard>0;
+        Destroy(oldCard);
+        oldCard = Instantiate(discard_pile[(discard_pile.Count - 1)], asdf.position, Quaternion.identity, _canvas);
+        //oldCard.transform.position = new Vector3(0, 0, 0);
         //Card current = Instantiate(discard_pile[(discard_pile.Count - 1)], new Vector3(0, 0, 0), quaternion.identity);
         if (player_deck.Count > 0)
         {
