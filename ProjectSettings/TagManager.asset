@@ -8,6 +8,7 @@ TagManager:
   - Player_Back
   - AI_Grave
   - Player_Grave
+  - Card
   layers:
   - Default
   - TransparentFX

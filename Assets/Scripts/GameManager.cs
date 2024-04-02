@@ -218,13 +218,15 @@ public class GameManager : MonoBehaviour
 
         
     }
-
+    
     void Draw_Screen()
     {
-        oldCard = PlayingCard.Find
-        Destroy(oldCard);
+        GameObject destroyedCard = GameObject.FindGameObjectWithTag("Card");
+        Destroy(destroyedCard);
+        
         oldCard = Instantiate(discard_pile[(discard_pile.Count - 1)], asdf.position, Quaternion.identity, _canvas);
-        oldCard.tag = "Card";
+        print(oldCard.gameObject.name);
+        oldCard.gameObject.tag = "Card";
         //oldCard.transform.position = new Vector3(0, 0, 0);
         //Card current = Instantiate(discard_pile[(discard_pile.Count - 1)], new Vector3(0, 0, 0), quaternion.identity);
         if (player_deck.Count > 0)
