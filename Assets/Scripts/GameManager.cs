@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,15 @@ public class GameManager : MonoBehaviour
 
     public PlayingCard oldCard;
 
+    public bool holding;
+    public bool fast;
+    public bool frames;
+    public float timer;
+
+    public TextMeshProUGUI aiText;
+    public TextMeshProUGUI playerText;
+    public TextMeshProUGUI middleText;
+    
     private void Awake()
     {
         if (gm != null && gm != this)
@@ -58,6 +68,33 @@ public class GameManager : MonoBehaviour
         {
             Action();
         }
+
+        fast = Input.GetKey(KeyCode.H);
+        holding = Input.GetKey(KeyCode.F);
+        frames = Input.GetKey(KeyCode.Return);
+        
+        if (frames)
+        {
+            timer += Time.deltaTime * 15;
+        } else if (fast)
+        {
+            timer += Time.deltaTime * 2.5f;
+        } else if (holding)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if (timer > 0.5f)
+        {
+            timer -= 0.5f;
+            Action();
+        }
+
+        aiText.text = "Cards in AI's Deck: " + ai_deck.Count;
+        playerText.text = "Cards in player's Deck: " + player_deck.Count;
+        middleText.text = "Cards in the middle: " + discard_pile.Count;
+
+        
     }
 // Deal 26 cards to you and 26 to AI
 // You reveal a card.
