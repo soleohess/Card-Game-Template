@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
     public bool frames;
     public float timer;
 
+    public int count;
+    public bool done;
+    public TextMeshProUGUI countText;
+    
     public TextMeshProUGUI aiText;
     public TextMeshProUGUI playerText;
     public TextMeshProUGUI middleText;
@@ -66,6 +70,10 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (!done)
+            {
+                count++;
+            }
             Action();
         }
 
@@ -87,9 +95,14 @@ public class GameManager : MonoBehaviour
         if (timer > 0.5f)
         {
             timer -= 0.5f;
+            if (!done)
+            {
+                count++;
+            }
             Action();
         }
 
+        countText.text = "Move count: " + count;
         aiText.text = "Cards in AI's Deck: " + ai_deck.Count;
         playerText.text = "Cards in player's Deck: " + player_deck.Count;
         middleText.text = "Cards in the middle: " + discard_pile.Count;
@@ -289,12 +302,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Player_Wins");
         AI_Grave.SetActive(true);
+        done = true;
     }
 
     void AI_Wins()
     {
         Debug.Log("AI_Wins");
         Player_Grave.SetActive(true);
+        done = true;
     }
     
 }
