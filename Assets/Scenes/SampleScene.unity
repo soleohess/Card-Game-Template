@@ -238,7 +238,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 746211268302498072, guid: aa6c884e536064a9eb5049502cb3f0e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1400557490}
   m_SourcePrefab: {fileID: 100100000, guid: aa6c884e536064a9eb5049502cb3f0e2, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -342,6 +345,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 399054393171186440, guid: aa6c884e536064a9eb5049502cb3f0e2, type: 3}
   m_PrefabInstance: {fileID: 2004169733}
   m_PrefabAsset: {fileID: 0}
+--- !u!210 &619705040
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619705036}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &622756964
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +564,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 399054393171186440, guid: aa6c884e536064a9eb5049502cb3f0e2, type: 3}
   m_PrefabInstance: {fileID: 203548849}
   m_PrefabAsset: {fileID: 0}
+--- !u!210 &1400557490
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400557486}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1001 &1453564499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -642,13 +669,20 @@ PrefabInstance:
       value: Card_Back (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6767922166918701798, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767922166918701798, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
       propertyPath: m_TagString
       value: Player_Back
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6767922166918701798, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1580822116}
   m_SourcePrefab: {fileID: 100100000, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
 --- !u!1001 &1497578645
 PrefabInstance:
@@ -743,6 +777,10 @@ PrefabInstance:
       value: Card_Back
       objectReference: {fileID: 0}
     - target: {fileID: 6767922166918701798, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767922166918701798, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -766,6 +804,7 @@ GameObject:
   - component: {fileID: 1508870012}
   - component: {fileID: 1508870011}
   - component: {fileID: 1508870010}
+  - component: {fileID: 1508870013}
   m_Layer: 5
   m_Name: AI Text
   m_TagString: Untagged
@@ -889,6 +928,18 @@ RectTransform:
   m_AnchoredPosition: {x: 450, y: 1000}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1508870013
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508870009}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1542715403
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +951,7 @@ GameObject:
   - component: {fileID: 1542715406}
   - component: {fileID: 1542715405}
   - component: {fileID: 1542715404}
+  - component: {fileID: 1542715407}
   m_Layer: 5
   m_Name: Middle Text
   m_TagString: Untagged
@@ -1023,6 +1075,35 @@ RectTransform:
   m_AnchoredPosition: {x: 450, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1542715407
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542715403}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
+--- !u!1 &1580822113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6767922166918701798, guid: 34c2401c532fd47d9b8a28501e0e128a, type: 3}
+  m_PrefabInstance: {fileID: 1453564499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &1580822116
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580822113}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1807976963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1146,7 @@ GameObject:
   - component: {fileID: 1882787250}
   - component: {fileID: 1882787249}
   - component: {fileID: 1882787248}
+  - component: {fileID: 1882787251}
   m_Layer: 5
   m_Name: Player Text
   m_TagString: Untagged
@@ -1188,6 +1270,18 @@ RectTransform:
   m_AnchoredPosition: {x: 450, y: -1000}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!210 &1882787251
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882787247}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1001 &2004169733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1303,7 +1397,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 746211268302498072, guid: aa6c884e536064a9eb5049502cb3f0e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 619705040}
   m_SourcePrefab: {fileID: 100100000, guid: aa6c884e536064a9eb5049502cb3f0e2, type: 3}
 --- !u!224 &4002591297304670402
 RectTransform:
